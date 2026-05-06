@@ -9,12 +9,12 @@ const anotherMessageListener = (data) => {
   console.log("Another message received: " + data);
 };
 
-emitter.on("message", anotherMessageListener);
-emitter.on("message", messageListener);
+emitter.once("message", anotherMessageListener);
+emitter.once("message", messageListener);
+console.log(emitter.listeners("message")); // []
 
 emitter.emit("message", "Hello, World!");
 
-console.log(emitter.listeners("message")); // []
 
 // removing (example)
 emitter.removeListener("message", messageListener);
