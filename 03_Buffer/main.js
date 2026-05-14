@@ -1,3 +1,5 @@
+const fs=require("fs")
+
 const Buff1 = Buffer.from("Hello World");
 console.log(Buff1);
 
@@ -15,3 +17,9 @@ console.log(hexaDecimal)
 
 const binary = decimalCode.toString(2);
 console.log(binary);
+
+
+
+const imageData=fs.readFileSync("image.png","base64")
+
+fs.writeFileSync("umar.png",imageData,"base64")
